@@ -1,1 +1,16 @@
-Temp data
+<!doctype html>
+<html>
+  <head>
+    <title>Westwood Robotics | PayDirt 2015 Points Calculator</title>
+    <script type="text/javascript">
+      xmlhttp.open("GET","https://raw.githubusercontent.com/WestwoodRobotics/BEST-2015-Public-Code/master/website_calculators/web_point_calculator/app.min.html",true);
+      xmlhttp.send();
+      document.querySelector("#main").innerHTML = xmlhttp.responseText;
+    </script>
+  </head>
+  <body>
+    <main>
+      <iframe id="main"></iframe>
+    </main>
+  </body>
+</html>
