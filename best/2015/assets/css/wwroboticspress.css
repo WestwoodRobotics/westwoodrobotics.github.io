@@ -1,0 +1,204 @@
+@font-face {
+  font-family: "DejaVuSansLight";
+  src: url("../font/dejavu/DejaVuSans-ExtraLight-webfont.woff") format("woff"), url("../font/dejavu/DejaVuSans-ExtraLight-webfont.ttf") format("truetype");
+  font-weight: 200;
+}
+
+
+@media only screen and (max-width: 664px) {
+    nav .brand-logo { font-size: 1.56rem; }
+    .container {
+        width: 98%;
+        padding: 0 0.5rem;
+    }
+    .card .card-content { padding: 10px; }
+    .card .card-action { padding: 10px; }
+}
+
+
+@media only screen and (max-width: 477px) {
+    nav .container { width: 100%; }
+    nav .brand-logo {
+        /*left: 47%;*/
+        width: 210px;
+        text-align: center;
+    }
+}
+
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 48px;
+    line-height: 48px;
+}
+.navbar-fixed { height: 48px; }
+
+@media only screen and (min-width : 601px) {
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 64px;
+    line-height: 64px;
+  }
+  .navbar-fixed { height: 64px; }
+}
+
+@media only screen and (min-width: 993px) {
+    .container { width: 80%; }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+    .container { width: 95%; }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 889px) {
+    .container { width: 100%; }
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #F7F7F7;
+}
+
+main { flex: 1 0 auto; }
+
+
+#nav-main .active,
+#nav-main .active-parent,
+#nav-main .active-child { background-color: rgba(0, 0, 0, 0.1); }
+#nav-main .sub-menu {
+    display: none;
+    position: absolute;
+    background-color: rgba(230, 81, 0, .9);
+}
+#nav-main .sub-menu li {
+    float: none;
+    height: 48px;
+    line-height: 48px;
+}
+#nav-main li:hover > .sub-menu { display: inherit; }
+#nav-main .sub-menu li a { display: block; }
+#nav-main .sub-level-0 { margin-top: -1px; }
+#nav-main .sub-menu li:hover,
+#nav-main .sub-menu .active,
+#nav-main .sub-menu .active-parent,
+#nav-main .sub-menu .active-child { background-color: rgba(0, 0, 0, 0.6); }
+#nav-main .sub-menu li ul {
+    left: 100%;
+    top: 0;
+}
+#nav-main .sub-menu li:hover > .sub-menu { display: block; }
+
+.side-nav a {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+.side-nav .sub-level-0 a { padding-left: 40px; }
+.side-nav .sub-level-1 a { padding-left: 60px; }
+.side-nav .sub-level-2 a { padding-left: 80px; }
+.side-nav .sub-level-3 a { padding-left: 100px; }
+.side-nav ul { background-color: #FFFFFF; }
+.side-nav li { padding: 0; margin: 0; }
+.side-nav li:hover { background-color: inherit; }
+.side-nav li a:hover { background-color: rgba(0, 0, 0, 0.2); }
+.side-nav li.active > a { background-color: #ffb74d; }
+
+blockquote { word-break: break-word; }
+
+.waves-effect {
+    will-change: inherit;
+    display: inline-block;
+}
+
+.btn, .btn-large, .btn-flat { margin-bottom: 15px;}
+
+.card a { text-transform: uppercase; }
+
+.post-metadata {
+    float: left;
+    margin-top: -8px;
+}
+
+.post-comment-count { display: block; }
+
+.type-page ul, .type-post ul {
+    display: block;
+    padding: 0 0 0 20px;
+}
+
+.padding-40 {
+    padding: 40px;
+}
+
+.promo {
+    color: #000000;
+    transition: all 0.5s;
+}
+
+.promo:hover {
+    color: #ffffff;
+    background-color: #E55C00;
+}
+
+.promo i {
+    color: #333;
+    font-size: 7rem;
+    display: block;
+    transition: all 0.3s;
+}
+
+.promo:hover i {
+    color: #ffffff;
+}
+
+.full-width { width: 100%; }
+
+.pad-top-20 { margin-top: 20px; }
+.pad-bot-20 { margin-bottom: 20px; }
+
+.spon-block a {
+    width: 100%;
+    display: inline-block;
+}
+
+.spon-block {
+    background-color: #ffffff;
+    transition: all .5s;
+    height: 100%;
+}
+
+.spon-block:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.spon-block img {
+    max-width: 200px;
+    max-height: 128px;
+}
+
+.copyright-container {
+    float: left;
+    margin-top: 6px;
+    line-height: 20px;
+}
+
+.trademark-span {
+    display: block;
+    height: 18px;
+}
+
+.unpad-bottom { margin-bottom: -6px; }
+.inline-block { display: inline-block; }
+
+
+abbr[title] {
+    cursor: help;
+}
+
+.post .card-content .card-title {
+    display: block;
+    padding-bottom: 20px;
+}
+
+.slider .indicators .indicator-item.active { background-color: #FF7018; }
