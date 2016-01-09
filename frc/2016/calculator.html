@@ -3,22 +3,169 @@
 * FRC 2016 STRONGHOLD Score Calculator
 * Originally created by Phoenix Wang / LASA Robotics <>
 * Webified by Vikas Potluri / Westwood Robotics <vikas@hexr.org><potlurivikas@gmail.com>
-* Copyright 2016 Westwood Robotics
-*/
--->
+				* Copyright 2016 Westwood Robotics
+				*/
+	-->
 <!doctype html>
 <html>
 	<head>
 		<title>FRC 2016 STRONGHOLD Point Calculator</title>
-		<script type="text/javascript" src="/assets/global/jquery.js"></script>
-		<script type="text/javascript" src="/assets/global/materialize.js"></script>
-		<link rel="stylesheet" type="text/css" href="/assets/global/materialize.css" />
+		<script type="text/javascript" src="https://westwoodrobotics.github.io/assets/global/jquery.js"></script>
+		<script type="text/javascript" src="https://westwoodrobotics.github.io/assets/global/materialize.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://westwoodrobotics.github.io/assets/global/materialize.css" />
 	</head>
-	<body>
+	<body class="grey lighten-4 black-text">
 		<header>
-			<nav class="fixed-nav">
-				<a href="http://team2583.org/">Website</a>
-				<h3>Westwood RoboWarriors</h3>
+			<nav class="fixed-nav orange darken-4">
+				<div class="container">
+					<div class="nav-wrapper">
+						<a href="http://team2583.org/?utm_source=westwoodrobotics.github.io">Website</a>
+						<a class="brand-logo center">Westwood RoboWarriors</a>
+					</div>
+				</div>
 			</nav>
+		</header>
+		<main class="container orange-text text-darken-3">
+			<div class="row">
+				<div class="col s12">
+					<div class="card-panel white">
+						<div class="entry-header">
+							<h2 class="header center orange-text text-darken-3">FRC STRONGHOLD 2016 Point Calculator</h2>
+						</div>
+						<div class="entry-content center">
+							<div class="results center">
+								<h4 class="center orange-text text-darken-3">Projected Score: <a class="green-text num-points">0</a> points</h4>
+							</div>
+							<form>
+								<div class="autonomous">
+									<h5>Autonomous</h5>
+									<div class="row">
+										<div class="col s12">
+											<div class="row">
+												<div class="col s12 l3 m3">
+													<div class="input-field">
+														<label for="a0" class="center">Reaching a Defense (2)</label>
+														<input autofocus name="a0" type="number" class="validate" min="0">
+													</div>
+												</div>
+												<div class="col s12 l3 m3">
+													<div class="input-field">
+														<label for="a1" class="center">Crossing Undamaged Defense (10)</label>
+														<input name="a1" type="number" class="validate" min="0" max="10">
+													</div>
+												</div>
+												<div class="col s12 l3 m3">
+													<div class="input-field">
+														<label for="a2" class="center">Boulder in Lower Tower Goal (5)</label>
+														<input name="a2" type="number" class="validate" min="0">
+													</div>
+												</div>
+												<div class="col s12 l3 m3">
+													<div class="input-field">
+														<label for="a3" class="center">Bolder in Higher Tower Goal (10)</label>
+														<input name="a3" type="number" class="validate" min="0">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<br/><hr/><br/>
+								<div class="teleoperated">
+									<h5>Teleoperated</h5>
+									<div class="row">
+										<div class="col s12">
+											<div class="row">
+												<div class="col s12 l4 m4">
+													<div class="input-field">
+														<label for="t0" class="center">Crossing Undamaged Defense (5)</label>
+														<input name="t0" type="number" class="validate" min="0" max="24">
+													</div>
+												</div>
+												<div class="col s12 l4 m4">
+													<div class="input-field">
+														<label for="t1" class="center">Boulder in Lower Tower Goal (2)</label>
+														<input name="t1" type="number" class="validate" min="0" max="20">
+													</div>
+												</div>
+												<div class="col s12 l4 m4">
+													<div class="input-field">
+														<label for="t2" class="center">Boulder in Higher Tower Goal (5)</label>
+														<input name="t2" type="number" class="validate" min="0" max="20">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col s12 l4 m4 offset-m2 offset-l2">
+													<div class="input-field">
+														<label for="t3" class="center">Challenging the Tower (5 / Robot)</label>
+														<input name="t3" type="number" class="validate center" min="0" max="3">
+													</div>
+												</div>
+												<div class="col s12 l4 m4">
+													<div class="input-field">
+														<label for="t4" class="center centered">Scaling the Tower (15 / Robot)</label>
+														<input name="t4" type="number" class="validate center" min="0" max="3">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<div class="results center">
+								<h4 class="center orange-text text-darken-3">Projected Score: <a class="green-text num-points">0</a> points</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
 	</body>
+	<script type="text/javascript">
+		window.frc = {
+			auto : {
+				defense: 2, //Reaching a Defense
+				crossing: 10, //Crossing Undamaged Defense
+				low: 5, //Boulder in Lower Tower Goal
+				high:10 //Boulder in Higher Tower Goal
+			},
+			tele : {
+				crossing: 5, //Crossing Undamaged Defense
+				low: 2, //Boulder in Lower Tower Goal
+				high: 5, //Boulder in Higher Tower Goal
+				challenge: 5, //Challenging the Tower
+				scale: 15 //Scaling the Tower
+			},
+			total:0,
+			calculate: function()
+			{
+				return ($("input[name=a0]").val() * frc.auto.defense) +
+				($("input[name=a1]").val() * frc.auto.crossing) +
+				($("input[name=a2]").val() * frc.auto.low) +
+				($("input[name=a3]").val() * frc.auto.high) +
+				($("input[name=t0]").val() * frc.tele.crossing) +
+				($("input[name=t1]").val() * frc.tele.low) +
+				($("input[name=t2]").val() * frc.tele.high) +
+				($("input[name=t3]").val() * frc.tele.challenge) +
+				($("input[name=t4]").val() * frc.tele.scale);
+			},
+			updateScores: function()
+			{
+				$(".num-points").html(frc.calculate());
+			}
+		}
+		$(document).ready(function()
+		{
+			$("input[name=a0]").change(frc.updateScores);
+			$("input[name=a1]").change(frc.updateScores);
+			$("input[name=a2]").change(frc.updateScores);
+			$("input[name=a3]").change(frc.updateScores);
+			$("input[name=t0]").change(frc.updateScores);
+			$("input[name=t1]").change(frc.updateScores);
+			$("input[name=t2]").change(frc.updateScores);
+			$("input[name=t3]").change(frc.updateScores);
+			$("input[name=t4]").change(frc.updateScores);
+		});
+	</script>
 </html>
